@@ -25,11 +25,14 @@ const { token } = require("./config.json");
 // Get all commands and put it in client.commands
 const commands = [];
 client.commands = new Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-for(const file of commandFiles){
-    const command = require(`./commands/${file}`);
-    commands.push(command.data.toJSON());
-    client.commands.set(command.data.name, command);
+const cmddir = fs.readdirSync('./commands');
+for(const dir of cmddir){
+    const commandFile = fs.readdirSync(`./commands/${dir}`).filter(file => file.endsWith('.js'));
+    for(const file of commandFile){
+        const command = require(`./commands/${dir}/${file}`);
+        commands.push(command.data.toJSON());
+        client.commands.set(command.data.name, command);
+    }
 }
 
 
