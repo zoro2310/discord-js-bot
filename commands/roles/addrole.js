@@ -17,7 +17,7 @@ module.exports = {
 				.setRequired(true)
 		),
 	async execute(interaction) {
-		if (!interaction.member.permissions.has("MANAGE_ROLES")){
+		if (!interaction.memberPermissions.has("MANAGE_ROLES")){
 			await interaction.reply(`No Perms`);
 			return;
 		}
