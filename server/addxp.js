@@ -17,16 +17,18 @@ module.exports = {
         const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
         var dbo = client.db("discord");
-
+        var i=0,j=0;
         //get a data from mongo
         var result = await dbo.collection("guilds").find().toArray();
         console.log("data fetched");
         for (const o_g of result) {
-            if (interaction.guildid == o_g.guild_id) {
+            if (interaction.guild.id == o_g.guild_id) {
+                console.log("guild fetched");
                 for (const o_u of o_g.users) {
                     if (user.id == o_u.user_id) {
-                        var xp_old = o_u.xp;
-                        var lvl_old = o_u.lvl;
+                        console.log("user fetched");
+                        var xp_old = o_u.user_xp;
+                        var lvl_old = o_u.user_level;
                         var xp_new = xp_old + xp;
                         var lvl_new = cal_lev(xp_new);
 
@@ -38,20 +40,22 @@ module.exports = {
                             warnings: 0
                         };
 
-
+                        result[i].users[j] = user_structure;
+                        console.log(xp_old);
                         //update a data in mongo
-                        var myquery = { guild_id: message.guild.id };
-                        var newvalues = { $set: { "users.$": user_structure } };
+                        var myquery = { guild_id: interaction.guild.id };
+                        var newvalues = { $set: { users: result[i].users } };
                         dbo.collection("guilds").updateOne(myquery, newvalues, function (err, res) {
                             if (err) throw err;
                             console.log("1 document updated");
                         });
-                        interaction.reply(`added`);
                         break;
                     }
+                    j++;
                 }
                 break;
             }
+            i++;
         }
         //client.close();
     }

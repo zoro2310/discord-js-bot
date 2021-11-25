@@ -16,8 +16,15 @@ module.exports = {
                 .setDescription('The amount of xp to remove').setRequired(true)
         ),
     async execute(interaction) {
-        const user = interaction.getOption('user');
-        const xp = interaction.getOption('xp');
-        fun.execute(interaction, user, xp);
+        const user = interaction.options.getMember('user');
+        const xp = interaction.options.getInteger('xp');
+        if (user.user.bot) {
+            interaction.reply(`${user.user.username} is a bot!`);
+            return;
+        }
+        if (user) {
+            await fun.execute(interaction, user, xp);
+            interaction.reply(`Removed ${xp} xp from ${user.displayName}`);
+        }
     },
 };

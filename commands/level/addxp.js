@@ -16,8 +16,16 @@ module.exports = {
                 .setDescription('The amount of xp to add').setRequired(true)
         ),
     async execute(interaction) {
-        const user = interaction.getOption('user');
-        const xp = interaction.getOption('xp');
-        fun.execute(interaction, user, xp);
+        const user = interaction.options.getMember('user');
+        const xp = interaction.options.getInteger('xp');
+        //check if user is bot
+        if (user.user.bot) {
+            interaction.reply(`${user.user.username} is a bot!`);
+            return;
+        }
+        else if (user) {
+            await fun.execute(interaction, user, xp);
+            interaction.reply(`Added ${xp} xp to ${user.displayName}`);
+        }
     },
 };
