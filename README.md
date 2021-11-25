@@ -2,18 +2,28 @@
 
 ## Current Features
 
-### Basic
-- ping
+<br>
 
-### Roles
+>### Basic
+```
+- ping
+```
+
+>### Roles
+```
 - addrole
 - removerole
+```
 
-### Level
+>### Level
+```
 - addxp
 - profile
 - revomexp
+```
 
-### Moderation
+>### Moderation
+```
 - [ ] startstats
 - link/word check
+```
