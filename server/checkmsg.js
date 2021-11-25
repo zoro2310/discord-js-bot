@@ -43,7 +43,7 @@ module.exports = {
     async execute(message) {
 
         //checking for words that are not allowed
-        const word_dit = ["hi", "hello"];
+        const word_dit = ["notallowed", "nallow"];
         for (const word of word_dit) {
             if (message.content.includes(word)) {
                 await update_warning(message);
