@@ -11,7 +11,7 @@ function cal_lev(xp) {
 }
 
 module.exports = {
-    name: "getprofile",
+    name: "addxp",
     async execute(interaction, user, xp) {
 
         const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });

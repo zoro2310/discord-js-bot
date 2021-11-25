@@ -16,6 +16,8 @@ module.exports = {
                 .setDescription('The amount of xp to add').setRequired(true)
         ),
     async execute(interaction) {
-        fun.execute(interaction, interaction.getUserOption('user'), interaction.getIntegerOption('xp'));
+        const user = interaction.getOption('user');
+        const xp = interaction.getOption('xp');
+        fun.execute(interaction, user, xp);
     },
 };
