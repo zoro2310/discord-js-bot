@@ -15,7 +15,7 @@ async function update_warning(message) {
             for (const o_u of o_g.users) {
                 if (message.author.id == o_u.user_id) {
                     console.log("user fetched");
-                    var war_old = o_u.user_xp;
+                    var war_old = o_u.warnings;
                     var war_new = war_old + 1;
 
                     result[i].users[j].warnings = war_new;
