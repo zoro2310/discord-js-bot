@@ -30,6 +30,7 @@ for(const dir of cmddir){
     const commandFile = fs.readdirSync(`./commands/${dir}`).filter(file => file.endsWith('.js'));
     for(const file of commandFile){
         const command = require(`./commands/${dir}/${file}`);
+        console.log(file)
         commands.push(command.data.toJSON());
         client.commands.set(command.data.name, command);
     }
