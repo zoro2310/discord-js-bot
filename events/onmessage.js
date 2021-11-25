@@ -23,8 +23,8 @@ module.exports = {
         if (message.author.bot) return;
         console.log(`${message.content}`);
         //check if the message is send by bot
-        /* await get_fun("checkpresence").execute(message);
-        await get_fun("update").execute(message); */
+        await get_fun("checkpresence").execute(message);
+        await get_fun("update").execute(message);
         await get_fun("checkmsg").execute(message);
     }
 }
