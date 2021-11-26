@@ -55,5 +55,7 @@ module.exports = {
                 await interaction.reply({ embeds: [anime_data] });
             }
         };
+
+        request.send();
     }
 }
