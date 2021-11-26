@@ -16,15 +16,23 @@ module.exports = {
                 .setDescription('The amount of xp to remove').setRequired(true)
         ),
     async execute(interaction) {
-        const user = interaction.options.getMember('user');
+        const member = interaction.options.getMember('user');
         const xp = interaction.options.getInteger('xp');
-        if (user.user.bot) {
-            interaction.reply(`${user.user.username} is a bot!`);
+
+        //get the role of the member
+        const role = interaction.member.roles.cache.find(role => role.name === 'Admin');
+        if (!role) {
+            interaction.reply(`You dont have proper roles`);
             return;
         }
-        if (user) {
-            await fun.execute(interaction, user, xp);
-            interaction.reply(`Removed ${xp} xp from ${user.displayName}`);
+
+        if (member.user.bot) {
+            interaction.reply(`${member.user.username} is a bot!`);
+            return;
+        }
+        if (member) {
+            await fun.execute(interaction, member, xp);
+            interaction.reply(`Removed ${xp} xp from ${member.displayName}`);
         }
     },
 };

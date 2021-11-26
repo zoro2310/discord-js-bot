@@ -16,16 +16,25 @@ module.exports = {
                 .setDescription('The amount of xp to add').setRequired(true)
         ),
     async execute(interaction) {
-        const user = interaction.options.getMember('user');
+        const member = interaction.options.getMember('user');
         const xp = interaction.options.getInteger('xp');
-        //check if user is bot
-        if (user.user.bot) {
-            interaction.reply(`${user.user.username} is a bot!`);
+
+        //get the role of the member
+        const role = interaction.member.roles.cache.find(role => role.name === 'Admin');
+        if (!role) {
+            interaction.reply(`You dont have proper roles`);
             return;
         }
-        else if (user) {
-            await fun.execute(interaction, user, xp);
-            interaction.reply(`Added ${xp} xp to ${user.displayName}`);
+        
+
+        //check if user is bot
+        if (member.user.bot) {
+            interaction.reply(`${member.user.username} is a bot!`);
+            return;
+        }
+        else if (member) {
+            await fun.execute(interaction, member, xp);
+            interaction.reply(`Added ${xp} xp to ${member.displayName}`);
         }
     },
 };
