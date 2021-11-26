@@ -27,3 +27,8 @@
 - [ ] startstats
 - link/word check
 ```
+
+>### Anime/Manga
+```
+- anime
+- manga
