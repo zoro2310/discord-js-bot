@@ -24,8 +24,10 @@
 
 >### Moderation
 ```
-- [ ] startstats
+- startstats
 - link/word check
+- ban/unban
+- kick
 ```
 
 >### Anime/Manga
@@ -33,6 +35,12 @@
 - anime
 - manga
 ```
+
+>### Welcome Msg
+```
+- On member join/leave
+```
+
 >### Next in line
 ```
 - musics
