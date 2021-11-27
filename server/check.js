@@ -38,6 +38,7 @@ module.exports = {
             var myobj = {
                 guild_id: message.guild.id,
                 member_count: message.guild.memberCount,
+                total_channel_id: 0,
                 users: [user_structure]
             };
             dbo.collection("guilds").insertOne(myobj, (err, res) => {

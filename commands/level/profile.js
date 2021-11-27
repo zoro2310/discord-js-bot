@@ -16,10 +16,11 @@ module.exports = {
 		var user = interaction.options.getMember('user');
 		if (!user) {
 			user_data = await fun.execute(interaction, interaction.user);
+			user = interaction.user;
 		}
 		else {
 			user_data = await fun.execute(interaction, user);
-			user = interaction.user;
+			user=user.user;
 		}
 		const user_xp = "" + user_data.user_xp;
 		const user_level = "" + user_data.user_level;
@@ -27,7 +28,7 @@ module.exports = {
 		const exampleEmbed = new MessageEmbed()
 			.setColor('#0099ff')
 			.setTitle('Your Server Profile')
-			.setAuthor("user.username")
+			.setAuthor(`${user.username}`, user.avatarURL())
 			.addFields(
 				{ name: 'XP', value: user_xp, inline: true },
 				{ name: 'LEVEL', value: user_level, inline: true },
