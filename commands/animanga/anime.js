@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const fun = require(`../../animanga/getanime.js`);
+const fun = require(`../../search/getanime.js`);
 
 module.exports = {
 	data: new SlashCommandBuilder()
