@@ -30,10 +30,13 @@
 - kick
 ```
 
->### Anime/Manga
+>### Search
 ```
 - anime
 - manga
+- youtube
+- memes
+- twitch
 ```
 
 >### Welcome Msg
