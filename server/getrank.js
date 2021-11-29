@@ -32,10 +32,19 @@ module.exports = {
         temp.sort(function (first, second) {
             return second[1] - first[1];
         });
-        for(var i=0;i<temp.length;i++){
+        /* for(var i=0;i<temp.length;i++){
             console.log(temp[i]);
+        } */
+        if(user==null){
+            user=interaction.member;
         }
-        await interaction.reply(`${temp[0]}`);
+        for (var i = 0; i < temp.length; i++) {
+            if (temp[i][0] == user.id) {
+                var rank = i + 1;
+                await interaction.reply(`${user.displayName} rank is ${rank} out of ${temp.length}`);
+                break;
+            }
+        }
 
 
         //client.close();

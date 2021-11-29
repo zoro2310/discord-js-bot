@@ -3,7 +3,7 @@ const fun = require("../../server/getrank.js");
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('ranks')
+		.setName('rank')
 		.setDescription('Replies with Server Ranks!')
 		.addUserOption(option =>
 			option
