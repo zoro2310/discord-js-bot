@@ -34,17 +34,26 @@
 ```
 - anime
 - manga
-- youtube
-- memes
-- twitch
 ```
 
 >### Welcome Msg
 ```
 - On member join/leave
 ```
-
->### Next in line
+>### Planned
 ```
-- musics
+- youtube
+- memes
+- twitch
+```
+<br><br>
+
+## Next in line (Started in music branch)
+
+<br>
+
+>### Music
+```
+- join
+- leave
 ```
