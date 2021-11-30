@@ -4,7 +4,7 @@ const fun = require(`../../search/getmanga.js`);
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('manga')
-		.setDescription('Search for a manga')
+		.setDescription('Search for a manga in kitsu.io')
         .addStringOption(option =>
 			option
 				.setName('name')
