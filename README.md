@@ -56,6 +56,5 @@
 
 >### Music
 ```
-- join
-- leave
+- will be a diff project
 ```
