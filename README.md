@@ -1,5 +1,7 @@
 # discord-js-bot
+<p> This will be a complete sample bot code for futher reference while making dedicated server based bot. If you want a dedicated server based bot contact me on my socials.
 
+<br>
 ## Current Features
 
 <br>
